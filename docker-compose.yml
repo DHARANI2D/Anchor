@@ -1,0 +1,56 @@
+services:
+  backend:
+    build: ./apps/backend
+    read_only: true # Read-only root filesystem
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL # Drop all capabilities
+    cap_add:
+      - NET_BIND_SERVICE # Only allow binding to network ports
+    tmpfs:
+      - /tmp:mode=1777,size=100M # Writable tmp directory
+      - /var/run:mode=755,size=10M
+      - /app/.cache:mode=755,size=50M # For Python cache
+    environment:
+      - SVCS_ROOT=/svcs-data
+      - ANCHOR_SECRET=${ANCHOR_SECRET:-supersecretkey}
+      - ADMIN_USERNAME=${ADMIN_USERNAME:-admin}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-anchor2025}
+      - PYTHONUNBUFFERED=1
+      - ALLOWED_ORIGINS=http://localhost:8000,http://127.0.0.1:8000
+    volumes:
+      - svcs-data:/svcs-data # Only this volume is writable
+    ports:
+      - "8001:8000"
+
+  frontend:
+    build:
+      context: ./apps/frontend
+      args:
+        - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-http://localhost:8001}
+    read_only: true # Read-only root filesystem
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL # Drop all capabilities
+    cap_add:
+      - NET_BIND_SERVICE # Only allow binding to network ports
+    tmpfs:
+      - /tmp:mode=1777,size=100M
+      - /var/run:mode=755,size=10M
+      - /app/.next/cache:mode=755,size=200M # For Next.js cache
+    environment:
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-http://localhost:8001}
+    ports:
+      - "8000:3000"
+    healthcheck:
+      test: [ "CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    depends_on:
+      - backend
+
+volumes:
+  svcs-data:
