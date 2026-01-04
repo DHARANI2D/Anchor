@@ -33,19 +33,19 @@ ANCHOR is built with a modular architecture to ensure maximum reliability and pe
 
 ---
 
-## 📸 Screenshots
+### 📸 Screenshots
 
-````carousel
-![Login & 2FA](file:///Users/dharanidharansenthilkumar/.gemini/antigravity/brain/d5509fae-a771-4411-835b-8cc4cfae48ef/uploaded_image_0_1767533713818.png)
-<!-- slide -->
-![User Dashboard](file:///Users/dharanidharansenthilkumar/.gemini/antigravity/brain/d5509fae-a771-4411-835b-8cc4cfae48ef/uploaded_image_1_1767533713818.png)
-<!-- slide -->
-![System Status](file:///Users/dharanidharansenthilkumar/.gemini/antigravity/brain/d5509fae-a771-4411-835b-8cc4cfae48ef/uploaded_image_2_1767533713818.png)
-<!-- slide -->
-![Security Matrix](file:///Users/dharanidharansenthilkumar/.gemini/antigravity/brain/d5509fae-a771-4411-835b-8cc4cfae48ef/uploaded_image_3_1767533713818.png)
-<!-- slide -->
-![Repository View](file:///Users/dharanidharansenthilkumar/.gemini/antigravity/brain/d5509fae-a771-4411-835b-8cc4cfae48ef/uploaded_image_4_1767533713818.png)
-````
+| Login & 2FA | User Dashboard |
+| :---: | :---: |
+| ![Login & 2FA](./assets/screenshots/login_2fa.png) | ![User Dashboard](./assets/screenshots/dashboard.png) |
+
+| System Status | Security Matrix |
+| :---: | :---: |
+| ![System Status](./assets/screenshots/system_status.png) | ![Security Matrix](./assets/screenshots/security_matrix.png) |
+
+| Repository View |
+| :---: |
+| ![Repository View](./assets/screenshots/repository_view.png) |
 
 ---
 
