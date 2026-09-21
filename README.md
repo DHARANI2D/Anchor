@@ -87,4 +87,4 @@ For external access without complex configuration:
 
 ## ⚖️ License
 
-MIT License. See [LICENSE](file:///Users/dharanidharansenthilkumar/Projects/ANCHOR/LICENSE) for details.
+MIT License. See [LICENSE](LICENSE) for details.
